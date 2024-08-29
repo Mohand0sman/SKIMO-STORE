@@ -80,10 +80,11 @@ nav {
 
 .logo {
     color: #0a75ef;
-    font-size: 31px;
+    font-size: 30px;
     font-family: cursive, system-ui;
     font-style: italic;
     font-weight: bold;
+    margin-left: 15px;
 }
 
 .link {
@@ -281,7 +282,19 @@ input[type="radio"]{
     transition: all 0.3s ease;
     overflow: hidden;
 }
-
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--color-background);
+    padding: 10px;
+    border: 1px solid #7e747454;
+    border-radius: 34px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
 .card::before {
     position: absolute;
     content: "";
@@ -311,31 +324,55 @@ input[type="radio"]{
     width: 100%;
     height: 100%;
 } */
-.card .image img {
+.card .image img , .cards .image img {
     max-width: 100%;
     width: 100%;
     border-radius: 34px;
 }
 
-.card:hover {
+.card:hover , .cards:hover {
     border-radius: 0;
     transform: translatey(-10px);
 }
-
+.cards .text {
+    color: #333;
+    padding: 7px;
+    font-size: 13px;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
 .card .text {
     color: #333;
     padding: 7px;
-    font-size: 18px;
+    font-size: 14px;
     z-index: 999;
     margin-right: 9rem;
     transition: all 0.3s ease;
-/*     font-family:system-ui , Arial, Helvetica, sans-serif; */
 }
 .card:hover .text {
     margin-right: 0;
 }
-.card .text:hover {
+.text:hover  {
     color: #7e747454;
+}
+
+.cards .price {
+    color: #333;
+    padding: 3px;
+    font-weight: bold;
+}
+.cards .price span {
+    font-size:13px;
+}
+.cards a {
+    background-color: #0a75ef;
+    padding: 7px;
+    color: #fff;
+    border-radius: 7px;
+    margin-top: 4px;
+    width: 50%;
+    cursor: pointer;
+    text-align: center;
 }
 /* END Card */
 /* Start Boxs */
@@ -360,6 +397,11 @@ input[type="radio"]{
 }
 .box:hover img {
     scale: 1.1;
+}
+.box h2 {
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
 }
 /* END Boxs */
 
@@ -473,37 +515,6 @@ footer {
 
 
 
-@media(max-width:800px) {
-    .hideOnMobile{
-        display: none;
-    }
-    .wrapper{
-        position: relative;
-        width: 600px;
-        height: 300px;
-    }
-    .main {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 4rem;
-        /* min-height: 50vh; */
-    }
-    .wrapper .sliders label{
-        width: 10px;
-        height: 10px;
-    }
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .card::before {
-        top: 200px;
-        left: 2000px;
-    }
-
-}
 /* ////////////////////////\ */
 
 
@@ -523,6 +534,7 @@ footer {
 .form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     gap: 20px;
     padding: 20px;
@@ -535,7 +547,8 @@ footer {
 }
 .form h3 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .form input {
@@ -544,6 +557,7 @@ footer {
     border: 1px solid rgb(98 114 130 / 38%);
     border-radius: 9px;
     background-color: transparent;
+    width: 70%;
 }
 .form button {
     width: fit-content;
@@ -551,6 +565,7 @@ footer {
     background-color: #0a75ef;
     color: #fff;
     border-radius: 9px;
+    cursor: pointer;
 }
 .social {
     display: flex;
@@ -562,14 +577,138 @@ footer {
     margin-top: 5px;
     font-size: 17px;
 }
+
+/* /////////////////////////////\ Start GameBUY\///////////////////////////////////////// */
+
+.container-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container-buy .image {
+    width: 80%;
+    margin: 10px;
+    text-align:center;
+}
+.image img {
+    max-width: 100%;
+    width: 90%;
+    border-radius: 34px;
+}
+
+.form-buy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+.form-buy .content {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+.price span {
+    font-size: 17px;
+    color: #03dd03;
+}
+.offer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.offer span {
+    font-size: 17px;
+}
+.offer div {
+    padding: 10px;
+}
+.offer div button {
+    background-color: #0a75ef;
+    padding: 7px;
+    border-radius: 7px;
+    color: #fff;
+    cursor: pointer;
+}
+.offer-price {
+    font-size: 14px;
+    color: #03dd03;
+}
+.form-buy label {
+    font-size: 17px;
+}
+.form-buy input {
+    padding: 15px 10px;
+    border: 1px solid rgb(142 197 252 / 46%);
+    border-radius: 7px;
+}
+.form-buy .subs {
+    width: 100%;
+    text-align: center;
+}
+.form-buy .sub {
+    background-color: #0a75ef;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 7px;
+    width: 50%;
+    text-align: center;
+
+}
+/* End GameBUY */
+@media(max-width:800px) {
+    .hideOnMobile{
+        display: none;
+    }
+    .wrapper{
+        position: relative;
+        width: 700px;
+        height: 350px;
+    }
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 4rem;
+        /* min-height: 50vh; */
+    }
+    .wrapper .sliders label{
+        width: 16px;
+        height: 16px;
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card::before {
+        top: 200px;
+        left: 200px;
+    }
+    .container-buy {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+    .form-buy {
+        text-align: center;
+    }
+
+}
 @media(max-width:500px) {
     .hideOnMobile{
         display: none;
     }
     .wrapper{
         position: relative;
-        width: 300px;
-        height: 200px;
+        width: 400px;
+        height: 250px;
     }
     .main {
         display: flex;
@@ -578,8 +717,8 @@ footer {
         /* min-height: 50vh; */
     }
     .wrapper .sliders label{
-        width: 10px;
-        height: 10px;
+        width: 13px;
+        height: 13px;
     }
     .card::before {
         top: 200px;
@@ -589,11 +728,17 @@ footer {
         width: 84%;
     height: 55%;
     }
+    
 }
 @media(min-width:800px) {
     .hideOndisk{
         display: none;
     }
+
+    /* .card::before {
+        top: 200px;
+        left: 200px;
+    } */
 
 }
 
